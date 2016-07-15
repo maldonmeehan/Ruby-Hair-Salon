@@ -11,6 +11,6 @@ end
 describe('#name') do
     it('returns the name of a given stylist') do
       stylist1 = Stylist.new({:id => nil, :name => 'David Mallet'})
-      expect(stylist1.title()).to(eq('David Mallet'))
+      expect(stylist1.name()).to(eq('David Mallet'))
     end
   end
