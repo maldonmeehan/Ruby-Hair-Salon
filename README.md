@@ -25,12 +25,11 @@ The project was to make an application that uses a database (hair_salon) and tab
   * Access the Postgres server by opening a terminal and run 'postgres'
   * Now, open another terminal window and run "psql"
 * In the terminal Run the following:
-  * CREATE DATABASE hair_salon
+  * CREATE DATABASE hair_salon;
   * \c hair_salon
-  * CREATE TABLE clients
-  * CREATE TABLE stylist
-  * \c
-  * CREATE DATABASE hair_salon_test
+  * CREATE TABLE clients (name varchar);
+  * CREATE TABLE stylists (name varchar);
+  * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 * Run ruby app.rb in your project directory to start Sinatra
 * Open a browser of your choice to localhost:4567
 
