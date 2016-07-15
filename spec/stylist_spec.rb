@@ -14,3 +14,11 @@ describe('#name') do
       expect(stylist1.name()).to(eq('David Mallet'))
     end
   end
+
+describe('#==') do
+  it('is the same stylist if it has the same attributes') do
+    stylest1 = Stylest.new({:id => nil, :name => 'David Mallet'})
+    stylest2 = Stylest.new({:id => nil, :name => 'David Mallet'})
+    expect(stylest1).to(eq(stylest2))
+  end
+end
