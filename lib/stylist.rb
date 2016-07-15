@@ -6,7 +6,16 @@ define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
   end
 
-
+  define_singleton_method(:all) do
+    returned_stylists = DB.exec("SELECT * FROM stylists ORDER BY name ASC;")
+    stylists = []
+    returned_stylists.each() do |stylist|
+      id = stylist.fetch('id').to_i
+      name = stylist.fetch('name')
+      stylists.push(Stylist.new({:id => id, :name => title}))
+    end
+    stylists
+  end
 
 
 
