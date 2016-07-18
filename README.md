@@ -18,18 +18,23 @@ The project was to make an application that uses a database (hair_salon) and tab
 
 * Clone this repository onto your computer
 * Run bundle install in your project directory to ensure all gems are installed.
+
 * Install Postgres:
   * Windows users: <a href="http://www.enterprisedb.com/products-services-training/pgdownload#windows">download and install Postgres</a>
   * Mac users: install Postgres by install Postgres, detailed instructions are <a href="https://www.learnhowtoprogram.com/ruby/ruby-database-basics/installing-postgres-7fb0cff7-a0f5-4b61-a0db-8a928b9f67ef">here</a>
+
 * Open Postgres:
   * Access the Postgres server by opening a terminal and run 'postgres'
   * Now, open another terminal window and run "psql"
+
 * In the terminal Run the following:
   * CREATE DATABASE hair_salon;
   * \c hair_salon
-  * CREATE TABLE clients (name varchar);
-  * CREATE TABLE stylists (name varchar);
+  * CREATE TABLE clients (id serial PRIMARY KEY, name varchar);
+  * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
+  * \c Guest
   * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+
 * Run ruby app.rb in your project directory to start Sinatra
 * Open a browser of your choice to localhost:4567
 

@@ -22,9 +22,9 @@ define_method(:initialize) do |attributes|
       @id = result.first().fetch('id').to_i()
     end
 
-  # define_method(:==) do |another_stylest|
-  #   self.name().==(another_stylest.name()).&(self.id().==(another_stylest.id()))
-  # end
+  define_method(:==) do |another_stylest|
+    self.name().==(another_stylest.name()).&(self.id().==(another_stylest.id()))
+  end
 
 
 
