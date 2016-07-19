@@ -30,7 +30,7 @@ The project was to make an application that uses a database (hair_salon) and tab
 * In the terminal Run the following:
   * CREATE DATABASE hair_salon;
   * \c hair_salon
-  * CREATE TABLE clients (id serial PRIMARY KEY, name varchar);
+  * CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int);
   * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
   * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 
