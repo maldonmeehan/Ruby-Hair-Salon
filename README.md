@@ -32,7 +32,6 @@ The project was to make an application that uses a database (hair_salon) and tab
   * \c hair_salon
   * CREATE TABLE clients (id serial PRIMARY KEY, name varchar);
   * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
-  * \c Guest
   * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 
 * Run ruby app.rb in your project directory to start Sinatra
