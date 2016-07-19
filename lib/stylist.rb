@@ -22,8 +22,8 @@ define_method(:initialize) do |attributes|
       @id = result.first().fetch('id').to_i()
     end
 
-  define_method(:==) do |another_stylest|
-    self.name().==(another_stylest.name()).&(self.id().==(another_stylest.id()))
+  define_method(:==) do |another_stylist|
+    self.name().==(another_stylist.name()).&(self.id().==(another_stylist.id()))
   end
 
   define_singleton_method(:find) do |id|

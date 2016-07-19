@@ -14,6 +14,14 @@ describe(Stylist) do
     end
   end
 
+  describe('#==') do
+    it('shows a stylist as being == equal when they share the same name and id') do
+      test_stylist1 = Stylist.new({:id => nil, :name => 'David Mallet'})
+      test_stylist2 = Stylist.new({:id => nil, :name => 'David Mallet'})
+      expect(test_stylist1).to(eq(test_stylist2))
+      end
+    end
+
   describe('#id') do
     it('returns the id of a given stylest') do
       stylest1 = Stylist.new({:id => nil, :name => 'David Mallet'})
@@ -21,14 +29,6 @@ describe(Stylist) do
       expect(stylest1.id()).to(be_an_instance_of(Fixnum))
     end
   end
-
-  # describe('#==') do
-  #   it('is the same stylist if it has the same attributes') do
-  #     test_stylest1 = Stylest.new({:id => nil, :name => 'David Mallet'})
-  #     test_stylest2 = Stylest.new({:id => nil, :name => 'David Mallet'})
-  #     expect(test_stylest1).to(eq(test_stylest2))
-  #   end
-  # end
 
   describe('#save') do
     it('saves a new stylist to the database') do
