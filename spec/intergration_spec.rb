@@ -21,15 +21,15 @@ describe('the add a stylist route', {:type => :feature}) do
   end
 end
 
-describe('the a a a client to route', {:type => :feature}) do
-  it('adds a client to a stylist') do
+describe('adding a client to Zohan Salon', {:type => :feature}) do
+  it('adds a client to a Stylist') do
     visit('/')
     click_link('Stylists')
-    fill_in('stylist-name', :with => 'Petra Flannery')
+    fill_in('stylist-name', :with => 'Gal')
     click_button('Add Stylist')
-    click_link('Petra Flannery')
-    fill_in('client-name', :with => 'Laura White')
+    click_link('Gal')
+    fill_in('client-name', :with => "Guy")
     click_button('Add Client')
-    expect(page).to have_content('Laura White')
+    expect(page).to have_content('Guy')
   end
 end
