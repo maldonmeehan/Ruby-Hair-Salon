@@ -31,7 +31,7 @@ describe(Stylist) do
   # end
 
   describe('#save') do
-    it('saves a new stylist in the hair_salon database') do
+    it('saves a new stylist to the database') do
       test_stylist = Stylist.new({:id => nil, :name => 'Ilaria Urbinati'})
       test_stylist.save()
       expect(Stylist.all()).to(eq([test_stylist]))
