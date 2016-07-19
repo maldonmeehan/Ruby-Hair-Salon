@@ -12,7 +12,7 @@ define_method(:initialize) do |attributes|
     returned_stylists.each() do |stylist|
       id = stylist.fetch('id').to_i
       name = stylist.fetch('name')
-      stylists.push(Stylist.new({:id => id, :name => title}))
+      stylists.push(Stylist.new({:id => id, :name => name}))
     end
     stylists
   end
@@ -25,8 +25,5 @@ define_method(:initialize) do |attributes|
   define_method(:==) do |another_stylest|
     self.name().==(another_stylest.name()).&(self.id().==(another_stylest.id()))
   end
-
-
-
 
 end
