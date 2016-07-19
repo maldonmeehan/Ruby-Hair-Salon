@@ -8,11 +8,11 @@ describe(Client) do
      end
    end
 
-  # describe('#==') do
-  #   it('is the same client if it has the same attributes') do
-  #     client1 = Client.new({:id => nil, :name => "Joanne Ward", :stylist_id => 1})
-  #     client2 = Client.new({:id => nil, :name => "Joanne Ward", :stylist_id => 1})
-  #     expect(client1).to(eq(client2))
-  #   end
-  # end
+  describe('#==') do
+    it('is the same client if it has the same attributes') do
+      client1 = Client.new({:id => nil, :name => "Joanne Ward", :stylist_id => 1})
+      client2 = Client.new({:id => nil, :name => "Joanne Ward", :stylist_id => 1})
+      expect(client1).to(eq(client2))
+    end
+  end
 end
