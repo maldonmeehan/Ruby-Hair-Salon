@@ -59,6 +59,14 @@ describe(Stylist) do
   end
 end
 
+describe('#update') do
+   it('updates a stylists in the database') do
+     stylist = Stylist.new({:id => nil, :name => 'David Mallet'})
+     stylist.save()
+     stylist.update({:name => 'Ilaria Urbinati'})
+     expect(stylist.name()).to(eq('Ilaria Urbinati'))
+   end
+ end
 
 
 
