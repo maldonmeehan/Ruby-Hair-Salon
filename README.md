@@ -50,10 +50,6 @@ If you have any questions please feel free to contact Maldon on github
 * Ruby
 * Postgres
 * Sinatra
-* Rspec
-* HTML
-* CSS     
-* Bootstrap
 
 ### License
 
