@@ -1,5 +1,4 @@
 class Client
-
   attr_reader(:id, :name, :stylist_id)
 
   define_method(:initialize) do |attributes|
@@ -16,9 +15,9 @@ class Client
       name = client.fetch('name')
       stylist_id = client.fetch('stylist_id').to_i()
       clients.push(Client.new({:id => id, :name => name, :stylist_id => stylist_id}))
-     end
-     clients
     end
+    clients
+  end
 
   define_method(:==) do |another_client|
     self.name().==(another_client.name()).&(self.id().==(another_client.id()))
@@ -49,7 +48,4 @@ class Client
     @stylist_id = attributes.fetch(:stylist_id)
     DB.exec("UPDATE clients SET name = '#{@name}', stylist_id = #{@stylist_id} WHERE id = #{@id};")
   end
-
-
-
 end

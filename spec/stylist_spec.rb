@@ -19,8 +19,8 @@ describe(Stylist) do
       test_stylist1 = Stylist.new({:id => nil, :name => 'David Mallet'})
       test_stylist2 = Stylist.new({:id => nil, :name => 'David Mallet'})
       expect(test_stylist1).to(eq(test_stylist2))
-      end
     end
+  end
 
   describe('#id') do
     it('returns the id of a given stylest') do
@@ -49,25 +49,22 @@ describe(Stylist) do
   end
 
   describe('#delete') do
-  it('deletes a stylist from the database') do
-    stylist1 = Stylist.new({:id => nil, :name => 'David Mallet'})
-    stylist1.save()
-    stylist2 = Stylist.new({:id => nil, :name => 'Ilaria Urbinati'})
-    stylist2.save()
-    stylist1.delete()
-    expect(Stylist.all()).to(eq([stylist2]))
+    it('deletes a stylist from the database') do
+      stylist1 = Stylist.new({:id => nil, :name => 'David Mallet'})
+      stylist1.save()
+      stylist2 = Stylist.new({:id => nil, :name => 'Ilaria Urbinati'})
+      stylist2.save()
+      stylist1.delete()
+      expect(Stylist.all()).to(eq([stylist2]))
+    end
   end
-end
 
-describe('#update') do
-   it('updates a stylists in the database') do
-     stylist = Stylist.new({:id => nil, :name => 'David Mallet'})
-     stylist.save()
-     stylist.update({:name => 'Ilaria Urbinati'})
-     expect(stylist.name()).to(eq('Ilaria Urbinati'))
-   end
- end
-
-
-
+  describe('#update') do
+    it('updates a stylists in the database') do
+      stylist = Stylist.new({:id => nil, :name => 'David Mallet'})
+      stylist.save()
+      stylist.update({:name => 'Ilaria Urbinati'})
+      expect(stylist.name()).to(eq('Ilaria Urbinati'))
+    end
+  end
 end

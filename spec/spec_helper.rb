@@ -10,6 +10,7 @@ RSpec.configure do |config|
     DB.exec('DELETE FROM stylists *;')
     DB.exec('DELETE FROM clients *;')
   end
+
   config.after(:each) do
     DB.exec('DELETE FROM stylists *;')
     DB.exec('DELETE FROM clients *;')
