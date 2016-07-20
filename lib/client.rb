@@ -1,3 +1,5 @@
+require('pry')
+
 class Client
   attr_reader(:id, :name, :stylist_id)
 
@@ -48,4 +50,18 @@ class Client
     @stylist_id = attributes.fetch(:stylist_id)
     DB.exec("UPDATE clients SET name = '#{@name}', stylist_id = #{@stylist_id} WHERE id = #{@id};")
   end
+
+  define_singleton_method(:find_by_stylist_id) do |stylist_id|
+    returned_clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{stylist_id};")
+    clients = []
+    returned_clients.each do |client|
+      id = client['id'].to_i
+      name = client['name']
+      stylist_id = client['stylist_id'].to_i
+      clients.push(Client.new({:id => id, :name => name, :stylist_id => stylist_id}))
+    end
+    clients
+  end
+
+
 end

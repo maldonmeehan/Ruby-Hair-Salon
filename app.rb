@@ -4,6 +4,7 @@ also_reload('lib/**/*.rb')
 require('./lib/stylist')
 require('./lib/client')
 require('pg')
+require('pry')
 
 DB = PG.connect({:dbname => 'hair_salon_test'})
 
@@ -17,7 +18,6 @@ get("/stylists") do
 end
 
 get("/stylists/new") do
-
   erb(:stylist_form)
 end
 
@@ -29,11 +29,12 @@ post("/stylists") do
   erb(:stylists)
 end
 
-# get('/surveys/:id') do
-#   @survey = Survey.find(params.fetch("id").to_i())
-#   erb(:survey)
-# end
-#
+get('/stylists/:id') do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @clients = Client.find_by_stylist_id(@stylist.id)
+  erb(:stylist)
+end
+
 # get('/questions') do
 #   @questions = Question.all()
 #   erb(:questions)

@@ -2,11 +2,11 @@
 
 <h2><%= @stylist.name() %></h2>
 
-<% if @stylist.clients().any?() %>
+<% if @clients.any?() %>
   <h3>Here are all the clients belonging to this stylist</h3>
 
   <ul>
-    <% @stylist.clients().each() do |client| %>
+    <% @clients.each() do |client| %>
       <li><%= client.name() %></li>
     <% end %>
   </ul>

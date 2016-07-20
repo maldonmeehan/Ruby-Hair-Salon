@@ -1,3 +1,5 @@
+require('pry')
+
 class Stylist
   attr_reader(:id, :name)
 
