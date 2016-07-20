@@ -35,11 +35,25 @@ get('/stylists/:id') do
   erb(:stylist)
 end
 
-# get('/questions') do
+get('/stylists/:id/edit') do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  erb(:stylist_edit)
+end
+
+patch('/stylists/:id') do
+  name = params.fetch('name')
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.update({:name => name})
+  @clients = Client.find_by_stylist_id(@stylist.id)
+  erb(:stylist)
+end
+
+
+# get('/clients') do
 #   @questions = Question.all()
 #   erb(:questions)
 # end
-#
+# #
 # get('/questions/new') do
 #   @surveys = Survey.all()
 #   erb(:question_form)
