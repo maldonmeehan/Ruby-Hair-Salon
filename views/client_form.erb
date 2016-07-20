@@ -1,0 +1,24 @@
+<h1>Add new client:</h1>
+
+<form action="/clients" method="post">
+
+  <label for="stylist_id">Select a Stylist</label>
+  <select id="stylist_id" name="stylist_id" type='text' required>
+    <% @stylists.each() do |stylist| %>
+      <option value="<%= stylist.id()%>"> <%= stylist.name() %> </option>
+    <% end %>
+  </select>
+
+  <label for="name">Client:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add client</button>
+</form>
+
+<div class='container'>
+  <button><a href="/clients/new">Add new client</a></button>
+  <button><a href="/stylists/new">Add new stylist</a></button>
+  <hr>
+  <button><a href="/clients">View all client</a></button>
+  <button><a href="/stylists">View all stylists</a></button>
+</div>

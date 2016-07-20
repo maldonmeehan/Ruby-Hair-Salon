@@ -1,0 +1,27 @@
+<h1>Individual client edit page</h1>
+
+<h2><%= @client.name() %></h2>
+
+<form action="/clients/<%= @client.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="name">Change the client:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Update</button>
+</form>
+<hr>
+
+<form action="/clients/<%= @client.id() %>/delete" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete</button>
+</form>
+
+<hr>
+<div class='container'>
+  <button><a href="/clients/new">Add new client</a></button>
+  <button><a href="/stylists/new">Add new stylist</a></button>
+  <hr>
+  <button><a href="/clients">View all client</a></button>
+  <button><a href="/stylists">View all stylists</a></button>
+</div>
