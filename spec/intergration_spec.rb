@@ -20,3 +20,15 @@ describe('add a new stylist', {:type => :feature}) do
     expect(page).to have_content('David Mallet')
   end
 end
+
+describe('view single stylist instance path', {:type => :feature}) do
+  it('allows the user to view a single stylist') do
+    visit('/')
+    click_link('Add new stylist')
+    fill_in("name", :with => 'David Mallet')
+    click_button('Add stylist')
+    expect(page).to have_content('David Mallet')
+    click_link("David Mallet")
+    expect(page).to have_content('Individual survey page')
+  end
+end

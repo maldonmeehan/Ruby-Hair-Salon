@@ -1,0 +1,22 @@
+<h1>Individual stylist page</h1>
+
+<h2><%= @stylist.name() %></h2>
+
+<% if @stylist.client().any?() %>
+  <h3>Here are all the clients in this stylists database</h3>
+
+  <ul>
+    <% @stylist.client().each() do |client| %>
+      <li><%= client.name() %></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>There are currently no clients for this stylist</p>
+<% end %>
+
+<p><a class="green" href="/stylists/<%= @stylist.id() %>/edit">Update</a></p>
+<div class='container'>
+  <button><a href="/clients/new">Add new client</a></button>
+  <button><a href="/stylists/new">Add new stylist</a></button>
+</div>
