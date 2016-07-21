@@ -107,3 +107,20 @@ describe('update a clients name route', {:type => :feature}) do
     expect(page).to have_content('Laura Walsh')
   end
 end
+
+describe('delete a client', {:type => :feature}) do
+  it('allows the user to delete a client') do
+    test_stylist = Stylist.new({:name => 'David Mallet', :id => nil})
+    test_stylist.save()
+    visit('/')
+    click_link('Add new client')
+    select('David Mallet', :from => 'stylist_id')
+    fill_in("name", :with => 'Laura White')
+    click_button('Add client')
+    expect(page).to have_content('Laura White')
+    click_link('Laura White')
+    click_link("Update")
+    click_button('Delete')
+    expect(page).to have_content('Current Clients in Database')
+  end
+end
