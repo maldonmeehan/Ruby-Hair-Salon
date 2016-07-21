@@ -64,10 +64,25 @@ end
 
 describe('add a new client', {:type => :feature}) do
   it('allows the user to add a client') do
+    test_stylist = Stylist.new({:name => 'David Mallet', :id => nil})
+    test_stylist.save()
     visit('/')
     click_link('Add new client')
+    select('David Mallet', :from => 'stylist_id')
     fill_in("name", :with => 'Laura White')
     click_button('Add client')
     expect(page).to have_content('Laura White')
   end
 end
+
+# describe('view single client instance route', {:type => :feature}) do
+#   it('allows the user to view a single client') do
+#     visit('/')
+#     click_link('Add new client')
+#     fill_in("name", :with => 'Laura')
+#     click_button('Add client')
+#     expect(page).to have_content('Laura')
+#     click_link("Laura")
+#     expect(page).to have_content('Individual stylist page')
+#   end
+# end

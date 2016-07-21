@@ -56,27 +56,25 @@ delete('/stylists/:id/delete') do
 end
 
 get('/clients') do
-  @questions = Question.all()
-  erb(:questions)
+  @clients = Client.all()
+  erb(:clients)
 end
 
 get('/clients/new') do
   @clients = Client.all()
+  @stylists = Stylist.all()
   erb(:client_form)
 end
 
-# post('/questions') do
-#   description = params.fetch('description')
-#   survey_id = params.fetch('survey_id').to_i()
-#   @survey = Survey.find(survey_id)
-#   @question = Question.create({:description => description, :survey_id => survey_id, :id => nil})
-#   @questions = Question.all()
-#   if @question.save()
-#     erb(:questions)
-#   else
-#     erb(:errors)
-#   end
-# end
+post("/clients") do
+  name = params.fetch("name")
+  stylist_id = params.fetch("stylist_id").to_i()
+  @client = Client.new({:id => nil, :name => name, :stylist_id => stylist_id})
+  @client.save()
+  @clients = Client.all()
+  erb(:clients)
+end
+
 #
 # get('/questions/:id') do
 #   @question = Question.find(params.fetch('id').to_i())
