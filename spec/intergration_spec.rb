@@ -61,3 +61,13 @@ describe('delete a stylist', {:type => :feature}) do
     expect(page).to have_content('Current Stylists in Database')
   end
 end
+
+describe('add a new client', {:type => :feature}) do
+  it('allows the user to add a client') do
+    visit('/')
+    click_link('Add new client')
+    fill_in("name", :with => 'Laura White')
+    click_button('Add client')
+    expect(page).to have_content('Laura White')
+  end
+end

@@ -55,16 +55,16 @@ delete('/stylists/:id/delete') do
   erb(:stylists)
 end
 
-# get('/clients') do
-#   @questions = Question.all()
-#   erb(:questions)
-# end
-# #
-# get('/questions/new') do
-#   @surveys = Survey.all()
-#   erb(:question_form)
-# end
-#
+get('/clients') do
+  @questions = Question.all()
+  erb(:questions)
+end
+
+get('/clients/new') do
+  @clients = Client.all()
+  erb(:client_form)
+end
+
 # post('/questions') do
 #   description = params.fetch('description')
 #   survey_id = params.fetch('survey_id').to_i()
