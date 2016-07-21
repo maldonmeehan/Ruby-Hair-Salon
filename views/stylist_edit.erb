@@ -11,18 +11,7 @@
 
 
 <form action="/stylists/<%= @stylist.id() %>/delete" method="post">
+  <label for="name">Delete the stylist:</label>
   <input name="_method" type="hidden" value="delete">
-
   <button type="submit">Delete</button>
 </form>
-
-
-
-<hr>
-<div class='container'>
-  <button><a href="/clients/new">Add new client</a></button>
-  <button><a href="/stylists/new">Add new stylist</a></button>
-  <hr>
-  <button><a href="/clients">View all client</a></button>
-  <button><a href="/stylists">View all stylists</a></button>
-</div>
