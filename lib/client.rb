@@ -62,6 +62,4 @@ class Client
     end
     clients
   end
-
-
 end

@@ -1,7 +1,6 @@
 require('spec_helper')
 
 describe(Client) do
-
   describe('.all') do
     it('is empty at first') do
       expect(Client.all()).to(eq([]))
@@ -51,8 +50,4 @@ describe(Client) do
       expect(client.name()).to(eq('Laura Walsh'))
     end
   end
-
-
-
-
 end
