@@ -75,14 +75,35 @@ describe('add a new client', {:type => :feature}) do
   end
 end
 
-# describe('view single client instance route', {:type => :feature}) do
-#   it('allows the user to view a single client') do
-#     visit('/')
-#     click_link('Add new client')
-#     fill_in("name", :with => 'Laura')
-#     click_button('Add client')
-#     expect(page).to have_content('Laura')
-#     click_link("Laura")
-#     expect(page).to have_content('Individual stylist page')
-#   end
-# end
+describe('view single client instance route', {:type => :feature}) do
+  it('allows the user to view a single client') do
+    test_stylist = Stylist.new({:name => 'David Mallet', :id => nil})
+    test_stylist.save()
+    visit('/')
+    click_link('Add new client')
+    select('David Mallet', :from => 'stylist_id')
+    fill_in("name", :with => 'Laura White')
+    click_button('Add client')
+    expect(page).to have_content('Laura White')
+    click_link("Laura White")
+    expect(page).to have_content('Individual client page')
+  end
+end
+
+describe('update a clients name route', {:type => :feature}) do
+  it('allows the user to update the clients name') do
+    test_stylist = Stylist.new({:name => 'David Mallet', :id => nil})
+    test_stylist.save()
+    visit('/')
+    click_link('Add new client')
+    select('David Mallet', :from => 'stylist_id')
+    fill_in("name", :with => 'Laura White')
+    click_button('Add client')
+    expect(page).to have_content('Laura White')
+    click_link('Laura White')
+    click_link("Update")
+    fill_in('name', :with => 'Laura Walsh')
+    click_button('Update')
+    expect(page).to have_content('Laura Walsh')
+  end
+end
