@@ -47,3 +47,17 @@ describe('update a stylists name route', {:type => :feature}) do
     expect(page).to have_content('John Mallet')
   end
 end
+
+describe('delete a stylist', {:type => :feature}) do
+  it('allows the user to delete a stylist') do
+    visit('/')
+    click_link('Add new stylist')
+    fill_in("name", :with => 'David Mallet')
+    click_button('Add stylist')
+    expect(page).to have_content('David Mallet')
+    click_link('David Mallet')
+    click_link("Update")
+    click_button('Delete')
+    expect(page).to have_content('Current Stylists in Database')
+  end
+end

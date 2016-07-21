@@ -48,6 +48,12 @@ patch('/stylists/:id') do
   erb(:stylist)
 end
 
+delete('/stylists/:id/delete') do
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  @stylist.delete()
+  @stylists = Stylist.all()
+  erb(:stylists)
+end
 
 # get('/clients') do
 #   @questions = Question.all()
@@ -108,9 +114,3 @@ end
 #   erb(:survey)
 # end
 #
-# delete('/surveys/:id/delete') do
-#   @survey = Survey.find(params.fetch('id').to_i())
-#   @survey.delete()
-#   @surveys = Survey.all()
-#   erb(:surveys)
-# end
